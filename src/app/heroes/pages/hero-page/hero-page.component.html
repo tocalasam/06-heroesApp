@@ -1,0 +1,45 @@
+<ng-template #divLoading>
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+      <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</ng-template>
+
+<div *ngIf="heroFinded; else divLoading" class="grid p2">
+  {{ heroFinded | json }}
+
+  <mat-card class="col-12 sm:col-6 ">
+
+    <mat-card-header>
+      <mat-card-title>{{ heroFinded.alter_ego }}</mat-card-title>
+      <mat-card-subtitle>{{heroFinded.superhero }}</mat-card-subtitle>
+    </mat-card-header>
+    <img class="ml-3" [src]="heroFinded | heroImage " [alt]="heroFinded.superhero" mat-card-image>
+  </mat-card>
+
+  <mat-card class="col-12 sm:col-6 ">
+    <mat-card-header>
+      <mat-card-title>Información:</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item><strong>Saga: </strong>{{ heroFinded.publisher }}</mat-list-item>
+        <mat-list-item><strong>Alter ego: </strong> {{ heroFinded.alter_ego }}</mat-list-item>
+        <mat-list-item><strong>Primera aparición: </strong>{{ heroFinded.first_appearance }}</mat-list-item>
+        <mat-list-item><strong>Personajes: </strong> {{ heroFinded.characters }}</mat-list-item>
+      </mat-list>
+    </mat-card-content>
+
+    <button mat-flat-button (click)="goBack()"  color="warn" >
+      <mat-icon>arrow_back</mat-icon>
+      Regresar
+    </button>
+
+  </mat-card>
+
+
+
+</div>

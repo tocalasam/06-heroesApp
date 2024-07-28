@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.colorRed {
+  background-color: rgb(247, 51, 90)  !important;
+}
+
+.colorGreen {
+  background-color: rgb(106, 247, 51)  !important;
+}
+
+.colorViolet {
+  background-color: rgb(66, 3, 82)  !important;
+}
