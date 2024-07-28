@@ -1,10 +1,8 @@
 <h1>
-  Editar / Agregar
+  {{ currentHero.id ? 'Editar' : 'Agregar' }}
   héroe
-  <small>Superman</small>
+  <small>{{currentHero.superhero}}</small>
 </h1>
-
-
 
 <mat-divider class="mb-2"></mat-divider>
 
@@ -14,13 +12,14 @@
     <mat-card>
       <mat-card-content class="colorViolet">
 
-        <div class="grid">
+        <form class="grid" [formGroup]="heroForm" (ngSubmit)="onSubmit()" >
           <mat-form-field class="col-12 sm:col-6">
             <mat-label>Super héroe</mat-label>
             <input
               matInput
               type="text"
-              required>
+              required
+              formControlName="superhero">
           </mat-form-field>
 
 
@@ -29,7 +28,8 @@
             <input
               matInput
               type="text"
-              required>
+              required
+              formControlName="alter_ego">
           </mat-form-field>
 
           <mat-form-field class="col-12">
@@ -37,7 +37,8 @@
             <input
               matInput
               type="text"
-              required>
+              required
+              formControlName="first_appearance">
           </mat-form-field>
 
 
@@ -46,31 +47,46 @@
             <input
               matInput
               type="text"
-              required>
+              required
+              formControlName="characters">
           </mat-form-field>
 
           <mat-form-field class="col-12">
             <mat-label>Saga</mat-label>
-            <mat-select required="">
+            <mat-select required="" formControlName="publisher">
               <mat-option
               *ngFor="let saga of sagas"
               [value]="saga.id">{{ saga.id }}</mat-option>
             </mat-select>
           </mat-form-field>
-        </div>
+
+          <mat-form-field class="col-12">
+            <mat-label>Imagen alternativa</mat-label>
+            <input
+              matInput
+              type="text"
+              formControlName="alt_img">
+          </mat-form-field>
+
+        </form>
 
         <div class="flex justify-content-between">
           <button
+            *ngIf="currentHero.id"
             mat-flat-button
             color="warn"
-            class="w-4">
+            class="w-4"
+            (click)="OnDeleteHeroConfirm()">
             Borrar
           </button>
+
+          <span></span>
 
           <button
             mat-flat-button
             color="primary"
-            class="w-4">
+            class="w-4"
+            (click)="onSubmit()">
             <mat-icon>save</mat-icon>
             Guardar
           </button>
@@ -84,8 +100,10 @@
 
   <div class="col-12 sm:col-6">
     <mat-card>
-      <img [src]="" alt="imagen del héroe" mat-card-image>
+      <img [src]=" currentHero | heroImage " alt="imagen del héroe" mat-card-image>
     </mat-card>
   </div>
 
 </div>
+
+

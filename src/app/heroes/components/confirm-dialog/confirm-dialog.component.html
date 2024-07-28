@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Borrado del héroe {{ data.superhero }}</h2>
+<mat-dialog-content>
+  <p>
+    ¿Esta seguro de borrar el héroe {{ data.superhero }}? <br>
+    Este es un proceso irreversible que precisa de confirmación.
+  </p>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-flat-button
+  color="warn"
+  (click)="onNoClick()">
+    <mat-icon>cancel</mat-icon>
+    cancelar
+  </button>
+
+  <span class="spacer"></span>
+
+  <button
+    mat-flat-button
+    (click)="onConfirm()"
+    cdkFocusInitial>
+    <mat-icon>check_circle</mat-icon>
+    Borrar</button>
+
+</mat-dialog-actions>
+
+
+
