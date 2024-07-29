@@ -12,7 +12,10 @@
     <input type="password" matInput placeholder="Contraseña">
   </mat-form-field>
 
-  <button mat-buton mat-flat-button color="primay">
+  <button
+    mat-buton mat-flat-button
+    color="primay"
+    (click)="onLogin()">
     <mat-icon>login</mat-icon>
     Ingresar
   </button>

@@ -1,4 +1,4 @@
-<h1>
+<h1 class="mt-3">
   {{ currentHero.id ? 'Editar' : 'Agregar' }}
   héroe
   <small>{{currentHero.superhero}}</small>
@@ -10,7 +10,7 @@
 
   <div class="col-12 sm:col-6">
     <mat-card>
-      <mat-card-content class="colorViolet">
+      <mat-card-content class="colorViolet m-2">
 
         <form class="grid" [formGroup]="heroForm" (ngSubmit)="onSubmit()" >
           <mat-form-field class="col-12 sm:col-6">
@@ -98,8 +98,8 @@
   </div>
 
 
-  <div class="col-12 sm:col-6">
-    <mat-card>
+  <div class="col-12 sm:col-6 ">
+    <mat-card class="m-2">
       <img [src]=" currentHero | heroImage " alt="imagen del héroe" mat-card-image>
     </mat-card>
   </div>
